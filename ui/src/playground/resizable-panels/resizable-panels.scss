@@ -1,0 +1,42 @@
+.ResizablePanels {
+  display: flex;
+  min-height: 300px;
+  max-height: 100%;
+
+  &-panel {
+    margin: 0;
+  }
+
+  &-resizer {
+    border: 1px #888888 solid;
+    width: 5px;
+    position: relative;
+    cursor: col-resize;
+    background: transparent;
+    flex-shrink: 0;
+    -webkit-user-select: none; /* Chrome all / Safari all */
+    -moz-user-select: none; /* Firefox all */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Likely future */
+
+    &:hover {
+      background: #e4e4e4;
+    }
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-100%);
+      right: 0;
+      display: inline-block;
+      height: 20px;
+      margin: 0;
+    }
+
+    &::before {
+      left: 0;
+    }
+  }
+}

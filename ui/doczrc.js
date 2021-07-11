@@ -23,6 +23,7 @@ export default {
     { name: 'Performance' },
     { name: 'Definitely Typed' },
     { name: 'Local development' },
+    { name: 'Playground (Alpha)' },
   ],
   repository: 'https://github.com/Typescript-TDD/ts-auto-mock',
 };

@@ -12,6 +12,12 @@ exports.onCreateWebpackConfig = ({
   actions,
 }) => {
   actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        fs: 'fake-fs',
+        typescript: 'fake-fs',
+      },
+    },
     plugins: [
       new copy({
         patterns: [

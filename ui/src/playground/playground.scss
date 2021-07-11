@@ -1,0 +1,11 @@
+.Playground {
+  &-loadingPanel {
+    width: 100%;
+    text-align: center;
+  }
+  
+  &-contentPanel {
+    border: 1px solid #888888;
+    overflow: hidden;
+  }
+}
