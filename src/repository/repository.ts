@@ -1,4 +1,7 @@
-type Factory = Function;
+import { applyIdentityProperty } from '../utils/applyIdentityProperty';
+
+// eslint-disable-next-line
+type Factory = (...args: any[]) => any;
 
 export class Repository {
   private readonly _repository: { [key: string]: Factory };
@@ -15,7 +18,7 @@ export class Repository {
   }
 
   public registerFactory(key: string, factory: Factory): void {
-    this._repository[key] = factory;
+    this._repository[key] = applyIdentityProperty(factory, key);
   }
 
   public getFactory(key: string): Factory {

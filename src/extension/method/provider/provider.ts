@@ -1,3 +1,4 @@
+import { applyIdentityProperty } from '../../../utils/applyIdentityProperty';
 import { functionMethod } from './functionMethod';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Method = (name: string, value: any) => () => any;
@@ -45,6 +46,10 @@ export class Provider {
       return this._method(name, value());
     }
 
-    return this._method(name, value);
+    // FIXME: Do this smarter, it's a bit counter intuitive to return a new
+    // proxy every single time this function is called. It should probably mock
+    // based on name if that ends up being a string representing the type
+    // signature.
+    return applyIdentityProperty(this._method, name)(name, value);
   }
 }
